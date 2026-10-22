@@ -63,11 +63,11 @@ class YapbozDemoSeeder extends Seeder
         $business = app(CreateBusiness::class)->handle(
             [
                 'slug' => 'yapboz-kirtasiye', 'display_name' => 'Yapboz Kırtasiye B2B',
-                'legal_name' => 'Yapboz Kırtasiye Toptan Ticaret Ltd. Şti.', 'email' => 'burakgul3085@gmail.com',
+                'legal_name' => 'Yapboz Kırtasiye Toptan Ticaret Ltd. Şti.', 'email' => 'by0004@gmail.com',
                 'phone' => '0212 555 40 40', 'city' => 'İstanbul', 'district' => 'Bayrampaşa',
                 'address' => 'Kocatepe Mah. Paşa Cd. No:18', 'tax_office' => 'Bayrampaşa', 'tax_number' => '9876543210',
             ],
-            ['name' => 'Yapboz Kırtasiye Yöneticisi', 'email' => 'burakgul3085@gmail.com', 'password' => self::PASSWORD],
+            ['name' => 'Yapboz Kırtasiye Yöneticisi', 'email' => 'by02004@gmail.com', 'password' => self::PASSWORD],
             ['plan' => 'Kurumsal', 'starts_on' => now()->subMonths(2)->toDateString(), 'note' => 'Demo lisansı'],
         )['business'];
 
@@ -189,7 +189,7 @@ class YapbozDemoSeeder extends Seeder
 
         $rel = app(DealerOnboarding::class)->createDirect(
             [
-                'legal_name' => 'Onur Kırtasiye', 'email' => 'burakgul3086@gmail.com', 'phone' => '0216 345 12 12',
+                'legal_name' => 'Onur Kırtasiye', 'email' => 'by02004@gmail.com', 'phone' => '0216 345 12 12',
                 'tax_office' => 'Kadıköy', 'tax_number' => '1234567890',
                 'city' => 'İstanbul', 'district' => 'Kadıköy', 'address' => 'Caferağa Mah. Moda Cd. No:42',
             ],

@@ -168,10 +168,10 @@ class AccountEmailTest extends TestCase
         $this->assertDatabaseHas('audit_logs', ['action' => 'platform.password_set']);
 
         // Ana Gmail ayarı platformdan da girilir ve test edilir.
-        $this->put(route('platform.businesses.email', $business), ['from_email' => 'burak@gmail.com', 'app_password' => 'abcd efgh ijkl mnop'])->assertSessionHasNoErrors();
-        $this->assertSame('burak@gmail.com', EmailSetting::withoutBusinessScope()->where('business_id', $business->id)->value('from_email'));
+        $this->put(route('platform.businesses.email', $business), ['from_email' => 'bilgehan@gmail.com', 'app_password' => 'abcd efgh ijkl mnop'])->assertSessionHasNoErrors();
+        $this->assertSame('bilgehan@gmail.com', EmailSetting::withoutBusinessScope()->where('business_id', $business->id)->value('from_email'));
         $this->post(route('platform.businesses.email.test', $business))->assertSessionHasNoErrors();
-        $this->assertSame(['burak@gmail.com'], $this->transport->recipients());
+        $this->assertSame(['bilgehan@gmail.com'], $this->transport->recipients());
         $this->assertSame('verified', EmailSetting::withoutBusinessScope()->where('business_id', $business->id)->value('status'));
     }
 

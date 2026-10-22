@@ -44,16 +44,16 @@ class StoreAdminManagementTest extends TestCase
 
         $this->get(route('platform.store-admins.index'))->assertOk()->assertSee('Henüz mağaza yöneticisi yok');
         $this->post(route('platform.store-admins.store'), [
-            'name' => 'Burak Gül', 'email' => 'Burak@Yapboz.test', 'password' => self::NEW_PASSWORD, 'is_super' => '1',
+            'name' => 'bilgehan Gül', 'email' => 'bilgehan@Yapboz.test', 'password' => self::NEW_PASSWORD, 'is_super' => '1',
         ])->assertSessionHasNoErrors();
 
-        $super = StoreAdmin::where('email', 'burak@yapboz.test')->firstOrFail();
+        $super = StoreAdmin::where('email', 'bilgehan@yapboz.test')->firstOrFail();
         $this->assertTrue($super->is_super);
         $this->assertSame('platform', $super->created_by_type);
         $this->assertDatabaseHas('audit_logs', ['action' => 'store.admin_created', 'actor_type' => 'platform', 'entity_id' => $super->id]);
 
         // Aynı e-postayla ikinci hesap açılamaz.
-        $this->post(route('platform.store-admins.store'), ['name' => 'X', 'email' => 'burak@yapboz.test', 'password' => self::NEW_PASSWORD])
+        $this->post(route('platform.store-admins.store'), ['name' => 'X', 'email' => 'bilgehan@yapboz.test', 'password' => self::NEW_PASSWORD])
             ->assertSessionHasErrors('email');
     }
 
